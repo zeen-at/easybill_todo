@@ -15,13 +15,13 @@ const MyTasks = () => {
   return (
     <SafeAreaView className="px-6 py-6">
       <Header title="My tasks" />
-      <View>
+      <View className="my-4">
         <FlatList
           data={todos}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <TaskCard
-              time={""}
+              date={item.date}
               title={item.title}
               subtitle={item.description}
               id={item.id}

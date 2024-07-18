@@ -15,13 +15,13 @@ import Header from "../components/Header";
 
 interface ITodo {
   title: string;
-  //   date: Date;
+    date: Date;
   //   time: Date;
   description: string;
 }
 const todo: ITodo = {
   title: "",
-  //   date: new Date(),
+    date: new Date(),
   //   time: new Date(),
   description: "",
 };
@@ -31,6 +31,8 @@ const Create = () => {
   const toast = useToast();
 
   const handleCreateTodo = (value: ITodo) => {
+    console.log(value, 'dd')
+
     dispatch(createTodo(value));
     toast.show("Task created successfully", {
       type: "success",
@@ -71,7 +73,7 @@ const Create = () => {
                     handleBlur={handleBlur("title")}
                     error={errors.title}
                   />
-                  {/* <CustomDateTimePicker
+                  <CustomDateTimePicker
                     mode={"date"}
                     value={values.date}
                     title={"Date"}
@@ -81,7 +83,7 @@ const Create = () => {
                     }}
                     otherStyles="my-2"
                     handleBlur={handleBlur("date")}
-                  /> */}
+                  />
                   {/* <CustomDateTimePicker
                     mode={"time"}
                     value={values.time}

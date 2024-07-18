@@ -60,7 +60,7 @@ const home = () => {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <TaskCard
-              time={""}
+              date={item.date}
               title={item.title}
               subtitle={item.description}
               id={item.id}

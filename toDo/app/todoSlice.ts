@@ -4,7 +4,7 @@ import uuid from "react-native-uuid";
 interface Todo {
   id: string;
   title: string;
-  //   date: Date;
+    date: Date;
   //   time: Date;
   description: string;
   completed: boolean;
@@ -12,7 +12,7 @@ interface Todo {
 
 interface TodoPayload {
   title: string;
-  //   date: Date;
+    date: Date;
   //   time: Date;
   description: string;
 }
@@ -25,7 +25,7 @@ const todoSlice = createSlice({
       const newTodo: Todo = {
         id: uuid.v4() as string,
         title: action.payload.title,
-        // date: action.payload.date,
+        date: action.payload.date,
         // time: action.payload.time,
         description: action.payload.description,
         completed: false,
