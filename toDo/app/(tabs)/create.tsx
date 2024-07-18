@@ -1,14 +1,6 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
+import { ScrollView, KeyboardAvoidingView, Platform } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
 import CustomInput from "../components/CustomInput";
 import CustomDateTimePicker from "../components/CustomDateTimePicker";
 import { router } from "expo-router";
@@ -16,9 +8,10 @@ import CustomButton from "../components/CustomButton";
 import { StatusBar } from "expo-status-bar";
 import { Formik } from "formik";
 import { todoValidation } from "../utils";
-import { createTodo, completeTodo, deleteTodo } from "../todoSlice";
+import { createTodo } from "../todoSlice";
 import { useDispatch } from "react-redux";
 import { useToast } from "react-native-toast-notifications";
+import Header from "../components/Header";
 
 interface ITodo {
   title: string;
@@ -38,12 +31,11 @@ const Create = () => {
   const toast = useToast();
 
   const handleCreateTodo = (value: ITodo) => {
-    console.log(value);
     dispatch(createTodo(value));
     toast.show("Task created successfully", {
       type: "success",
       placement: "top",
-      duration: 10000,
+      duration: 5000,
       animationType: "slide-in",
     });
     router.push("home");
@@ -52,12 +44,7 @@ const Create = () => {
   return (
     <SafeAreaView className="px-6 py-6">
       <ScrollView>
-        <View className="flex flex-row space-x-28">
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="chevron-back-outline" size={20} color="#000" />
-          </TouchableOpacity>
-          <Text className="text-xl font-bold">New Task</Text>
-        </View>
+        <Header title="New Task" />
         <KeyboardAvoidingView
           keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
         >

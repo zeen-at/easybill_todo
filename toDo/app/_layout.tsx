@@ -1,7 +1,7 @@
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Provider } from "react-redux";
 import store, { persistor } from "./store";
 import { PersistGate } from "redux-persist/integration/react";
@@ -31,7 +31,8 @@ export default function RootLayout() {
         <ToastProvider offset={50}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="screens" options={{ headerShown: false }} />
+            <Stack.Screen name="(screens)" options={{ headerShown: false }} />
+            <Stack.Screen name="index" options={{ headerShown: false }} />
           </Stack>
         </ToastProvider>
       </PersistGate>

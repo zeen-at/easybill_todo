@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { router } from "expo-router";
 
 interface ITask {
   time: string;
@@ -10,10 +10,13 @@ interface ITask {
 }
 
 const TaskCard = ({ time, title, subtitle, id }: ITask) => {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate("screens", { id, title, subtitle });
+    router.push({
+      pathname: `/(screens)/[id]`,
+      params: { id, title, subtitle },
+    });
   };
   return (
     <TouchableOpacity onPress={handlePress}>

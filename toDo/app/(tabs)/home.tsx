@@ -39,8 +39,17 @@ const home = () => {
           <Text className="text-slate-400">View All</Text>
         </TouchableOpacity>
       </View>
-
-      <CustomCard title="Coding" subtitle="frontend" progress="1%" />
+      <View>
+        <FlatList
+          data={todos}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <CustomCard title={item.title} subtitle="frontend" progress="1%" />
+          )}
+          viewabilityConfig={{ itemVisiblePercentThreshold: 70 }}
+          horizontal
+        />
+      </View>
 
       <Text className="pt-6 pb-2 text-lg font-bold">My Tasks</Text>
       {/* <FlatList /> */}
