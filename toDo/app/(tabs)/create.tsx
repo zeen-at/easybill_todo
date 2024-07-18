@@ -7,22 +7,23 @@ import { router } from "expo-router";
 import CustomButton from "../components/CustomButton";
 import { StatusBar } from "expo-status-bar";
 import { Formik } from "formik";
-import { todoValidation } from "../utils";
+import { Priority, todoValidation } from "../utils";
 import { createTodo } from "../todoSlice";
 import { useDispatch } from "react-redux";
 import { useToast } from "react-native-toast-notifications";
 import Header from "../components/Header";
+import CustomSelect from "../components/CustomSelect";
 
 interface ITodo {
   title: string;
-    date: Date;
-  //   time: Date;
+  date: Date;
+  priority: string;
   description: string;
 }
 const todo: ITodo = {
   title: "",
-    date: new Date(),
-  //   time: new Date(),
+  date: new Date(),
+  priority: "",
   description: "",
 };
 
@@ -31,7 +32,7 @@ const Create = () => {
   const toast = useToast();
 
   const handleCreateTodo = (value: ITodo) => {
-    console.log(value, 'dd')
+    console.log(value, "dd");
 
     dispatch(createTodo(value));
     toast.show("Task created successfully", {
@@ -84,17 +85,14 @@ const Create = () => {
                     otherStyles="my-2"
                     handleBlur={handleBlur("date")}
                   />
-                  {/* <CustomDateTimePicker
-                    mode={"time"}
-                    value={values.time}
-                    title={"Time"}
-                    error={errors.time}
-                    handleChange={(e) => {
-                      setFieldValue("time", e);
-                    }}
+                  <CustomSelect
+                    value={values.priority}
+                    error={errors.priority}
+                    handleChange={handleChange("priority")}
+                    title="Priority"
                     otherStyles="my-2"
-                    handleBlur={handleBlur("time")}
-                  /> */}
+                    options={Priority}
+                  />
                   <CustomInput
                     isMultiline
                     title="Description"

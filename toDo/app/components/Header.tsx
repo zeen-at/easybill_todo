@@ -2,10 +2,8 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import { IHeader } from "../types";
 
-type IHeader = {
-  title: string;
-};
 const Header = ({ title }: IHeader) => {
   return (
     <View className="flex flex-row space-x-28">

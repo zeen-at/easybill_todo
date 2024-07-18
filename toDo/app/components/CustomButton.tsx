@@ -1,11 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-
-interface IButton {
-  handlePress: () => void;
-  title: string;
-}
+import { IButton } from "../types";
 
 const CustomButton = ({ handlePress, title }: IButton) => {
   return (

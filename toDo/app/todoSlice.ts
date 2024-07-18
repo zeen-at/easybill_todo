@@ -4,16 +4,16 @@ import uuid from "react-native-uuid";
 interface Todo {
   id: string;
   title: string;
-    date: Date;
-  //   time: Date;
+  date: Date;
+  priority: string;
   description: string;
   completed: boolean;
 }
 
 interface TodoPayload {
   title: string;
-    date: Date;
-  //   time: Date;
+  date: Date;
+  priority: string;
   description: string;
 }
 
@@ -26,7 +26,7 @@ const todoSlice = createSlice({
         id: uuid.v4() as string,
         title: action.payload.title,
         date: action.payload.date,
-        // time: action.payload.time,
+        priority: action.payload.priority,
         description: action.payload.description,
         completed: false,
       };

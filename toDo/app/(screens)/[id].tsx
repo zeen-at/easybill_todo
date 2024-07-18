@@ -13,8 +13,6 @@ const TodoDetails = () => {
   const dispatch = useDispatch();
   const toast = useToast();
 
-  const todos = useSelector((state: RootState) => state.todos);
-
   const { id, title, subtitle } = useLocalSearchParams();
   const handleEditTodo = () => {
     dispatch(completeTodo(id));

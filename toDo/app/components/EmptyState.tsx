@@ -1,10 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
-
-interface IEmpty {
-  title: string;
-  subtitle: string;
-}
+import { IEmpty } from "../types";
 
 const EmptyState = ({ title, subtitle }: IEmpty) => {
   return (

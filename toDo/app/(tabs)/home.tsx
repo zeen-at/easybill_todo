@@ -64,6 +64,7 @@ const home = () => {
               title={item.title}
               subtitle={item.description}
               id={item.id}
+              priority={item.priority}
             />
           )}
           ListEmptyComponent={() => (

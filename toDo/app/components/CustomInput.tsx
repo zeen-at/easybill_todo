@@ -1,24 +1,7 @@
-import {
-  View,
-  Text,
-  TextInput,
-  NativeSyntheticEvent,
-  TextInputFocusEventData,
-} from "react-native";
+import { View, Text, TextInput } from "react-native";
 import React from "react";
+import { IForm } from "../types";
 
-interface IForm {
-  error?: string;
-  title: string;
-  placeholder: string;
-  value: string;
-  isMultiline?: boolean;
-  handleTextChange: (text: string) => void;
-  handleBlur?: (text: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  otherStyles?: string;
-  numberOfLines?: number;
-  otherTextStyles?: string;
-}
 const CustomInput = ({
   error,
   title,

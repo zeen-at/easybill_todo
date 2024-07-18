@@ -3,21 +3,7 @@ import DateTimePicker, {
   DateTimePickerEvent,
 } from "@react-native-community/datetimepicker";
 import React, { useState } from "react";
-
-interface IDateTime {
-  mode: "date" | "time";
-  value: any;
-  error: any;
-  title: string;
-  handleChange: (date: Date) => void;
-  otherStyles?: string;
-  handleBlur: (field: string) => void;
-}
-interface DateTimeFormatOptions {
-  hour?: "2-digit" | "numeric";
-  minute?: "2-digit" | "numeric";
-  hour12?: boolean;
-}
+import { IDateTime, DateTimeFormatOptions } from "../types";
 
 const CustomDateTimePicker = ({
   mode,

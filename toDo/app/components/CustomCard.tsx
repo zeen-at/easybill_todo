@@ -1,12 +1,8 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import { ICard } from "../types";
 
-interface ICard {
-  title: string;
-  subtitle: string;
-  progress: string;
-}
 const CustomCard = ({ title, subtitle, progress }: ICard) => {
   return (
     <View className="bg-white w-60 items-start rounded-md m-2">
